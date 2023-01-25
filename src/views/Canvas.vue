@@ -34,14 +34,15 @@ export default {
       switch (this.toolbar) {
         case 1:
                 this.isDrawing = true;
+                this.eraseButton = false
                 break;
         case 2:
                 this.isDrawingRectangle = true;
+                this.eraseButton = false
                 break;
         default:
                 break;
       }
-      this.eraseButton = false
       this.lastX = event.offsetX;
       this.lastY = event.offsetY;
     },
@@ -96,10 +97,10 @@ export default {
     },
 
     eraser(event) {
-      if(this.eraseButton) {
-        const ctx = this.$refs.canvas.getContext('2d');
-        ctx.clearRect(event.offsetX - this.brushSize, event.offsetY - this.brushSize, this.brushSize * 2, this.brushSize * 2);
-      }
+      if(!this.eraseButton) return;
+      if(event.buttons == 0) return;
+      const ctx = this.$refs.canvas.getContext('2d');
+      ctx.clearRect(event.offsetX - this.brushSize, event.offsetY - this.brushSize, this.brushSize * 2, this.brushSize * 2);
     },
 
     importImage() {

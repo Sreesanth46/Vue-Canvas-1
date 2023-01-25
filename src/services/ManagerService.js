@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080"
+const baseURL = "http://10.5.28.209:8080"
 const accessToken = 'Manager '.concat(localStorage.getItem('accessToken'))
 
 class ManagerService {
