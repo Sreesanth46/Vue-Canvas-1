@@ -1,4 +1,4 @@
-# first-project
+# Vue Canvas tool
 
 ## Project setup
 ```
